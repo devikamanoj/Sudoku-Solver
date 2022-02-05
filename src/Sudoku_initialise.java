@@ -28,7 +28,7 @@ public class Sudoku_initialise
         Sudoku[7][0]=8 ;Sudoku[7][1]=5 ;Sudoku[7][6]=2 ;Sudoku[7][8]=4 ;
         
         //row 9
-        Sudoku[8][2]=3 ;Sudoku[8][4]=9 ;Sudoku[8][5]=2 ;Sudoku[8][6]=8 ;
+        Sudoku[8][2]=3 ;Sudoku[8][3]=9 ;Sudoku[8][4]=2 ;Sudoku[8][6]=8 ;
     }
     
     static void Print(int[][] Sudoku)
@@ -37,7 +37,6 @@ public class Sudoku_initialise
         // for box 1
         for(int i=0;i<9;i++)
         {
-            int col=i;
             if(i==3||i==6)
             {
                 System.out.println(" ---------------------------------");
@@ -46,16 +45,16 @@ public class Sudoku_initialise
             {
                 if(j==0)
                 {
-                    System.out.print(" | "+Sudoku[j][col]+" ");
+                    System.out.print(" | "+Sudoku[i][j]+" ");
                 }
                 else if(j==2 ||j==5||j==8)
                 {
-                    System.out.print(" "+Sudoku[j][col]+" | ");
+                    System.out.print(" "+Sudoku[i][j]+" | ");
                 }
 
                 else
                 {
-                    System.out.print(" "+Sudoku[j][col]+" ");
+                    System.out.print(" "+Sudoku[i][j]+" ");
                 }
             }
             System.out.println();
