@@ -13,25 +13,26 @@ public class Sudoku
         System.out.println("        ************************");
         System.out.println("        WELCOME TO SUDOKO SOLVER");
         System.out.println("        ************************");
-
-        System.out.println("\n Are you a: ");
-        System.out.println(" 1. New Player \n 2. Old Player");
-        System.out.print("\n Enter your choice: ");
-        int choice = in.nextInt();
-
-        if(choice==1)
+        while(true)
         {
-            NewPlayer();
+            System.out.println("\n Are you a: ");
+            System.out.println(" 1. New Player \n 2. Old Player");
+            System.out.print("\n Enter your choice: ");
+            int choice = in.nextInt();
+    
+            if(choice==1)
+            {
+                NewPlayer();
+            }
+            else if (choice==2)
+            {
+                OldPlayer();
+            }
+            else
+            {
+                System.out.println("\n    !!! INVALID CHOICE !!!");
+            }
         }
-        else if (choice==2)
-        {
-            OldPlayer();
-        }
-        else
-        {
-            System.out.println("\n    !!! INVALID CHOICE !!!");
-        }
-        in.close();
     }
     static void NewPlayer()
     {

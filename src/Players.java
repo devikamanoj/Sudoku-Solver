@@ -1,4 +1,5 @@
 import java.util.*;
+
 import java.io.*;
 public class Players implements Serializable
 {
@@ -25,7 +26,7 @@ public class Players implements Serializable
 
         for(Players players: playerList)
         {
-            if(players.Username==Username)
+            if(players.Username.equals(Username))
             {
                 System.out.print("\n Player "+name+" already exists. \n Please join with your existing account");
             }
@@ -33,23 +34,17 @@ public class Players implements Serializable
         Players play = new Players(Username, Password, name);
         playerList.add(play);
     }
-    static void CheckPlayer(String Username, String Password)
+    static void CheckPlayer(String User, String Pass)
     {
-        for(int i=0;i<=Players.playerList.size();i++)
+        for(Players player : playerList)
         {
-            if(Players.playerList.get(i).getUsername().contains(Username) && Players.playerList.get(i).getPassword().contains(Password))
+            if(player.Username.equals(User) && player.Password.equals(Pass))
             {
-                Sudoku.wait(2000);
-                System.out.print("\n LOGGIN SUCCESSFULL !!!");
-
-                System.out.print("\n Name: "+ Players.playerList.get(i).Name);
-
-            }
-            else
-            {
-                System.out.println("    PLAYER NOT AVAILABLE ");
+                System.out.print("\n Welcome "+User+" !!!");
+                
             }
         }
+
     }
     static void WriteData()
     {
@@ -74,14 +69,5 @@ public class Players implements Serializable
     public String toString() 
     {
         return"{Username: "+Username+" Name: "+Name+" }\n";
-    }
-    public  String getUsername()
-    {
-        return Username;
-    }
-
-    public String getPassword()
-    {
-        return Password;
     }
 }
