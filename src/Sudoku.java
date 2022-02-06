@@ -1,11 +1,12 @@
 import java.util.*;
+import java.io.*;
 public class Sudoku
 {
     static int[][] Sudoku=new int[9][9];
     static int[][] Sudoku_New=new int[9][9];
-    static HashMap <Integer,String> Username= new HashMap<Integer,String>();
-    static HashMap <Integer,String> Password= new HashMap<Integer,String>();
     static Scanner in = new Scanner(System.in);
+    
+    static String Username,Password;
     public static void main(String[] args) 
     {
 
@@ -13,77 +14,42 @@ public class Sudoku
         System.out.println("        WELCOME TO SUDOKO SOLVER");
         System.out.println("        ************************");
 
-        System.out.println(" Are you a Admin or a Player");
-        System.out.println(" 1. Admin \n 2. Player");
+        System.out.println("\n Are you a: ");
+        System.out.println(" 1. New Player \n 2. Old Player");
+        System.out.print("\n Enter your choice: ");
+        int choice = in.nextInt();
 
-        int choice=in.nextInt();
         if(choice==1)
         {
-            adminLogin();
+            NewPlayer();
         }
-        else if(choice==2)
+        else if (choice==2)
         {
-            UserLogin();
+            OldPlayer();
         }
         else
         {
-            System.out.println(" INVALID CHOICE !!!");
+            System.out.println("\n    !!! INVALID CHOICE !!!");
         }
-
         in.close();
     }
-    static void adminLogin()
+    static void NewPlayer()
     {
-        System.out.println(" Are you a New User or an Old User ?");
-        System.out.println(" 1. New User \n 2. Old User");
-        int choice =in.nextInt();
-
-        if(choice ==1)
-        {
-            NewUser();
-        }
-        else if(choice ==2)
-        {
-            OldUser();
-        }
-        else
-        {
-            System.out.println(" INVALID CHOICE !!!");
-        }
+        Players.AddDetails();
+        Players.WriteData();
+        wait(2000);
+        System.out.println("\n SUCCUSSFULLY SIGNED UP !!! \n PLEASE LOGIN IN TO PROCEED FURTHER !!!");
     }
-    static void OldUser()
+    static void OldPlayer()
     {
-        System.out.println();
-        System.out.println(" Enter Username: ");
-        String user=in.next();
-        System.out.println(" Enter Password: ");
-        String pass=in.next();
-        checkUserPresent(user, pass);
+        System.out.print("\n Enter Username: ");
+        String Username=in.next();
+        System.out.print("\n Enter Password: ");
+        String Password = in.next();
+        wait(2000);
+        Players.CheckPlayer(Username, Password);
     }
-    static void checkUserPresent(String user,String Pass)
-    {
-        String name,pass;
-        for(int i=0;i<Username.size();i++)
-        {
-            name = Username.get(i);
-            if(name.equals(user))
-            {
-                pass = Password.get(i);
-                if(Pass.equals(pass))
-                {
-                    wait(2000);
-                    System.out.println(" LOGGED IN");
-                    wait(1000);
-                    UserLogin();
-                }
-            }
-        }
-    }
-    static void NewUser()
-    {
-
-    }
-    public static void wait(int ms)
+    static void wait(int ms)
 	{
 		try
 		{
@@ -94,39 +60,4 @@ public class Sudoku
 			Thread.currentThread().interrupt();
 		}
 	}
-    static void UserLogin()
-    {
-        int row,column,number;
-        
-        System.out.print("Enter the row: ");
-        row=in.nextInt();
-        System.out.print("\n Enter the column: ");
-        column=in.nextInt();
-
-        while(Sudoku_Methods.ElementZero(Sudoku))
-        {
-            // checks if the above mentioned position is occupied or not
-            if(Sudoku[row-1][column-1]!=0)
-            {
-                System.out.println(" Oops !!! The given position is occupied !!!");
-                number=Sudoku[row-1][column-1];
-            }
-            else
-            {
-                System.out.print("\n Enter the number: ");
-                number=in.nextInt();
-            }
-
-            if(Sudoku[row-1][column-1]==0 &&!Sudoku_Methods.IsRepeatingCol(Sudoku, number) && !Sudoku_Methods.IsRepeatingRow(Sudoku, number))
-            {
-                Sudoku[row-1][column-1]=number;
-            }
-            else
-            {
-                System.out.println(" Oops !!! The number has been repeated !!!");
-            }
-        }
-
-        Sudoku_initialise.Print(Sudoku);
-    }
 }
