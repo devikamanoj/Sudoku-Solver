@@ -51,28 +51,42 @@ public class Sudoku_Methods
     {
         if(level==1)
         {
-            Sudoku_initialise.initialise_L1(Sudoku);
+            Sudoku=Sudoku_initialise.initialise_L1(Sudoku);
+            Sudoku_New=Sudoku_initialise.initialise_L1(Sudoku);
+            ElementAdd();
         }
         else if(level==2)
         {
             Sudoku_initialise.initialise_L2(Sudoku);
+            Sudoku_New=Sudoku_initialise.initialise_L2(Sudoku);
+            ElementAdd();
         }
         else if(level==3)
         {
             Sudoku_initialise.initialise_L3(Sudoku);
+            Sudoku_New=Sudoku_initialise.initialise_L3(Sudoku);
+            ElementAdd();
         }
         else if(level==4)
         {
             Sudoku_initialise.initialise_L4(Sudoku);
+            Sudoku_New=Sudoku_initialise.initialise_L4(Sudoku);
+            ElementAdd();
         }
         else if(level==5)
         {
             Sudoku_initialise.initialise_L5(Sudoku);
+            Sudoku_New=Sudoku_initialise.initialise_L5(Sudoku);
+            ElementAdd();
         }
         else
         {
             System.out.println("\n    END OF GAME !!!");
             System.out.println("\n    YOU MAY RESTART THE GAME !!!");
         }
+    }
+    static void ElementAdd()
+    {
+
     }
 }
