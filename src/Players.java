@@ -5,9 +5,9 @@ public class Players implements Serializable
 {
     static Scanner in = new Scanner (System.in);
     String Username,Password,Name;
-    static File f = new File("src\\Files\\Accounts.dat");
-	static ObjectOutputStream out = null;
-    static ArrayList<Players> playerList = new ArrayList();
+    static File f = new File("src\\Files\\Accounts.txt");
+    static String account;
+    static List<String> Acc_Details = new ArrayList<String>();
     Players(String Username, String Password, String Name)
     {
         super();
@@ -24,38 +24,24 @@ public class Players implements Serializable
         System.out.print("\n Enter password: ");
         String Password=in.next();
 
-        for(Players players: playerList)
-        {
-            if(players.Username.equals(Username))
-            {
-                System.out.print("\n Player "+name+" already exists. \n Please join with your existing account");
-            }
-        }
-        Players play = new Players(Username, Password, name);
-        playerList.add(play);
+        account=Username+";"+Password+";"+name+"\n";
+        
     }
     static void CheckPlayer(String User, String Pass)
     {
-        for(Players player : playerList)
+        readData();
+        for(int i=0;i<Acc_Details.size();i++)
         {
-            if(player.Username.equals(User) && player.Password.equals(Pass))
-            {
-                System.out.print("\n Welcome "+User+" !!!");
-                
-            }
+            System.out.println(Acc_Details.get(i));
         }
-
     }
     static void WriteData()
     {
         try 
         {
-            out = new ObjectOutputStream(new FileOutputStream(f));
-            for(Players i: playerList)
-            {
-                out.writeObject(i);
-            }
-            out.close();
+            FileWriter fw = new FileWriter(f, true);
+            fw.write(account);
+            fw.close();
         } 
         catch (FileNotFoundException e) 
         {
@@ -65,6 +51,24 @@ public class Players implements Serializable
         {
 			e.printStackTrace();
 		}
+    }
+    static void readData()
+    {
+        try 
+        {
+            Scanner sc = new Scanner(f);
+            while(sc.hasNextLine())
+            {
+                String line = sc.nextLine();
+                String details[]=line.split(";");
+                Acc_Details=Arrays.asList(details);
+            }
+            sc.close();
+        } 
+        catch (FileNotFoundException e) 
+        {
+            e.printStackTrace();
+        }
     }
     public String toString() 
     {
