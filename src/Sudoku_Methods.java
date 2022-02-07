@@ -1,5 +1,8 @@
 public class Sudoku_Methods
 {
+    static int[][] Sudoku=new int[9][9];
+    static int[][] Sudoku_New=new int[9][9];
+
     static boolean ElementZero(int [][] Sudoku)
     {
         for(int i=0;i<9;i++)
@@ -46,6 +49,30 @@ public class Sudoku_Methods
     }
     static void run(int level)
     {
-        
+        if(level==1)
+        {
+            Sudoku_initialise.initialise_L1(Sudoku);
+        }
+        else if(level==2)
+        {
+            Sudoku_initialise.initialise_L2(Sudoku);
+        }
+        else if(level==3)
+        {
+            Sudoku_initialise.initialise_L3(Sudoku);
+        }
+        else if(level==4)
+        {
+            Sudoku_initialise.initialise_L4(Sudoku);
+        }
+        else if(level==5)
+        {
+            Sudoku_initialise.initialise_L5(Sudoku);
+        }
+        else
+        {
+            System.out.println("\n    END OF GAME !!!");
+            System.out.println("\n    YOU MAY RESTART THE GAME !!!");
+        }
     }
 }

@@ -1,14 +1,10 @@
 import java.util.*;
 public class Sudoku
 {
-    static int[][] Sudoku=new int[9][9];
-    static int[][] Sudoku_New=new int[9][9];
     static Scanner in = new Scanner(System.in);
-    
     static String Username,Password;
     public static void main(String[] args) 
     {
-
         System.out.println("        ************************");
         System.out.println("        WELCOME TO SUDOKO SOLVER");
         System.out.println("        ************************");
