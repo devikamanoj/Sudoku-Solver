@@ -29,10 +29,29 @@ public class Players implements Serializable
     }
     static void CheckPlayer(String User, String Pass)
     {
-        readData();
-        for(int i=0;i<Acc_Details.size();i++)
+        int count=0;
+        try 
         {
-            System.out.println(Acc_Details.get(i));
+            Scanner sc = new Scanner(f);
+            while(sc.hasNextLine())
+            {
+                String line = sc.nextLine();
+                if(line.startsWith(User))
+                {
+                    count++;
+                    String details[]=line.split(";");
+                    Acc_Details=Arrays.asList(details);
+                }
+            }
+            sc.close();
+        } 
+        catch (FileNotFoundException e) 
+        {
+            e.printStackTrace();
+        }
+        if(count ==0)
+        {
+            System.out.println("    Oops !!! Please Enter your Username and Password correctly !!!");
         }
     }
     static void WriteData()
@@ -52,23 +71,9 @@ public class Players implements Serializable
 			e.printStackTrace();
 		}
     }
-    static void readData()
+    static void readData(String Username)
     {
-        try 
-        {
-            Scanner sc = new Scanner(f);
-            while(sc.hasNextLine())
-            {
-                String line = sc.nextLine();
-                String details[]=line.split(";");
-                Acc_Details=Arrays.asList(details);
-            }
-            sc.close();
-        } 
-        catch (FileNotFoundException e) 
-        {
-            e.printStackTrace();
-        }
+
     }
     public String toString() 
     {
