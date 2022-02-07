@@ -1,7 +1,6 @@
 public class Sudoku_initialise 
 {
-    
-    static void initialise(int [][]Sudoku)
+    static void initialise_L1(int [][]Sudoku)
     {
         // row 1
         Sudoku[0][1]=1 ;Sudoku[0][2]=2 ; Sudoku[0][8]=5 ;

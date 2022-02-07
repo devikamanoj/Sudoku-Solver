@@ -44,4 +44,8 @@ public class Sudoku_Methods
         }
         return false;
     }
+    static void run(int level)
+    {
+        
+    }
 }
