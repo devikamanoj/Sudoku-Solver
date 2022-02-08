@@ -8,13 +8,15 @@ public class Sudoku
         System.out.println("        ************************");
         System.out.println("        WELCOME TO SUDOKO SOLVER");
         System.out.println("        ************************");
-        while(true)
+
+        char bool='y';
+        do
         {
             System.out.println("\n Are you a: ");
             System.out.println(" 1. New Player \n 2. Old Player");
             System.out.print("\n Enter your choice: ");
             int choice = in.nextInt();
-    
+        
             if(choice==1)
             {
                 NewPlayer();
@@ -27,7 +29,11 @@ public class Sudoku
             {
                 System.out.println("\n    !!! INVALID CHOICE !!!");
             }
+            System.out.print("\nDo you wish to continue? (Y/N) : ");
+            bool=in.next().charAt(0);
+            System.out.print("\n");
         }
+        while(bool=='Y'||bool=='y');
     }
     static void NewPlayer()
     {
@@ -35,6 +41,7 @@ public class Sudoku
         Players.WriteData();
         wait(2000);
         System.out.println("\n SUCCUSSFULLY SIGNED UP !!! \n PLEASE LOGIN IN TO PROCEED FURTHER !!!");
+        Players.CheckPlayer(Username, Password);
     }
     static void OldPlayer()
     {

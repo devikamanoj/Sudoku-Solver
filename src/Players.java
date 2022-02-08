@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class Players implements Serializable
+public class Players
 {
     static Scanner in = new Scanner (System.in);
     static String Username,Password,Name,account;
@@ -54,6 +54,9 @@ public class Players implements Serializable
             {
                 System.out.println("\n    YOU HAVE SUCCESSFULLY LOGGED IN !!!");
 
+                System.out.print("\n Enter the level: ");
+                int level=in.nextInt();
+                Sudoku_Methods.run(level);
             }
         }
     }

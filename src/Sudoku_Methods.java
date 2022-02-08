@@ -4,7 +4,7 @@ public class Sudoku_Methods
     static int[][] Sudoku=new int[9][9];
     static int[][] Sudoku_New=new int[9][9];
     static Scanner in = new Scanner(System.in);
-
+    static int level;
     static boolean ElementZero(int [][] Sudoku, int row,int col)
     {
         if(Sudoku[row][col]!=0)
@@ -78,6 +78,8 @@ public class Sudoku_Methods
     }
     static void ElementAdd()
     {
+        System.out.println("\n Here is your puzzle:  ");
+        Sudoku_initialise.Print(Sudoku);
         System.out.print("\n Enter the number: ");
         int num = in.nextInt();
         int row,col;
@@ -87,11 +89,20 @@ public class Sudoku_Methods
             row = in.nextInt();
             System.out.print("\n Enter the column: ");
             col = in.nextInt();
-
-            if(!IsRepeatingCol(Sudoku, num, col) && !IsRepeatingRow(Sudoku, num, row) && ElementZero(Sudoku, row, col) && !CheckMainElem(row, col))
+            while(!ifSolved(Sudoku))
             {
-                Sudoku[row][col]=num;
+                if(!IsRepeatingCol(Sudoku, num, col) && !IsRepeatingRow(Sudoku, num, row) && ElementZero(Sudoku, row, col) && !CheckMainElem(row, col))
+                {
+                    Sudoku[row][col]=num;
+                    Sudoku_initialise.Print(Sudoku);
+                }
+                if(ifSolved(Sudoku))
+                {
+                    System.out.println("    YOU HAVE SUCCESSFULLY SOLVED THE PUZZLE !!!");
+                    Sudoku_initialise.Print(Sudoku);
+                }
             }
+
         }
     }
     static boolean CorrectNum(int num)
@@ -108,6 +119,28 @@ public class Sudoku_Methods
     static boolean CheckMainElem(int row, int col)
     {
         if(Sudoku_New[row][col]!=0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    static boolean ifSolved(int [][] Sudoku)
+    {
+        int count=0;
+        for(int i=0;i<9;i++)
+        {
+            for(int j=0;j<9;j++)
+            {
+                if(Sudoku[i][j]!=0)
+                {
+                    count++;
+                }
+            }
+        }
+        if(count==81)
         {
             return true;
         }
