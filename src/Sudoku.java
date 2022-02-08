@@ -41,6 +41,7 @@ public class Sudoku
         Players.writeData();
         wait(2000);
         System.out.println("\n SUCCUSSFULLY SIGNED UP !!! \n PLEASE LOGIN IN TO PROCEED FURTHER !!!");
+        oldPlayer();
         Players.checkPlayer(Username, Password);
     }
     static void oldPlayer()
