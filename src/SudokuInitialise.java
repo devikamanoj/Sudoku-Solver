@@ -1,6 +1,6 @@
-public class Sudoku_initialise 
+public class SudokuInitialise 
 {
-    static int[][] initialise_L1(int [][]Sudoku)
+    static int[][] initialiseL1(int [][]Sudoku)
     {
         // row 1
         Sudoku[0][1]=2 ;Sudoku[0][3]=7 ; Sudoku[0][4]=1 ;
@@ -31,7 +31,7 @@ public class Sudoku_initialise
 
         return Sudoku;
     }
-    static int[][] initialise_L2(int [][]Sudoku)
+    static int[][] initialiseL2(int [][]Sudoku)
     {
         // row 1
         Sudoku[0][2]=6 ;Sudoku[0][8]=8 ;
@@ -62,7 +62,7 @@ public class Sudoku_initialise
 
         return Sudoku;
     }
-    static int[][] initialise_L3(int [][]Sudoku)
+    static int[][] initialiseL3(int [][]Sudoku)
     {
         // row 1
         Sudoku[0][0]=3 ;Sudoku[0][2]=9 ; Sudoku[0][6]=6 ;
@@ -93,7 +93,7 @@ public class Sudoku_initialise
 
         return Sudoku;
     }
-    static int[][] initialise_L4(int [][]Sudoku)
+    static int[][] initialiseL4(int [][]Sudoku)
     {
         // row 1
         Sudoku[0][5]=8 ;Sudoku[0][6]=2 ; Sudoku[0][8]=9 ;
@@ -124,7 +124,7 @@ public class Sudoku_initialise
 
         return Sudoku;
     }
-    static int[][] initialise_L5(int [][]Sudoku)
+    static int[][] initialiseL5(int [][]Sudoku)
     {
         // row 1
         Sudoku[0][0]=1 ;Sudoku[0][2]=8 ; Sudoku[0][3]=3 ;Sudoku[0][7]=9 ;
@@ -155,7 +155,7 @@ public class Sudoku_initialise
 
         return Sudoku;
     }
-    static void Print(int[][] Sudoku)
+    static void print(int[][] Sudoku)
     {
         System.out.println(" ---------------------------------");
         // for box 1

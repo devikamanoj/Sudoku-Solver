@@ -19,11 +19,11 @@ public class Sudoku
         
             if(choice==1)
             {
-                NewPlayer();
+                newPlayer();
             }
             else if (choice==2)
             {
-                OldPlayer();
+                oldPlayer();
             }
             else
             {
@@ -35,22 +35,22 @@ public class Sudoku
         }
         while(bool=='Y'||bool=='y');
     }
-    static void NewPlayer()
+    static void newPlayer()
     {
-        Players.AddDetails();
-        Players.WriteData();
+        Players.addDetails();
+        Players.writeData();
         wait(2000);
         System.out.println("\n SUCCUSSFULLY SIGNED UP !!! \n PLEASE LOGIN IN TO PROCEED FURTHER !!!");
-        Players.CheckPlayer(Username, Password);
+        Players.checkPlayer(Username, Password);
     }
-    static void OldPlayer()
+    static void oldPlayer()
     {
         System.out.print("\n Enter Username: ");
         String Username=in.next();
         System.out.print("\n Enter Password: ");
         String Password = in.next();
         wait(2000);
-        Players.CheckPlayer(Username, Password);
+        Players.checkPlayer(Username, Password);
     }
     static void wait(int ms)
 	{

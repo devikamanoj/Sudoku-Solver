@@ -7,7 +7,7 @@ public class Players
     static File f = new File("src\\Files\\Accounts.txt");
     static List<String> Acc_Details = new ArrayList<String>();
     
-    static void AddDetails()
+    static void addDetails()
     {
         System.out.print("\n Enter Name: ");
         String name=in.next();
@@ -19,7 +19,7 @@ public class Players
         account=Username+";"+Password+";"+name+"\n";
         
     }
-    static void CheckPlayer(String User, String Pass)
+    static void checkPlayer(String User, String Pass)
     {
         int count=0;
         try 
@@ -56,11 +56,11 @@ public class Players
 
                 System.out.print("\n Enter the level: ");
                 int level=in.nextInt();
-                Sudoku_Methods.run(level);
+                SudokuMethods.run(level);
             }
         }
     }
-    static void WriteData()
+    static void writeData()
     {
         try 
         {

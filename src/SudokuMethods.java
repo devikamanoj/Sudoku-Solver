@@ -1,11 +1,11 @@
 import java.util.*;
-public class Sudoku_Methods
+public class SudokuMethods
 {
     static int[][] Sudoku=new int[9][9];
-    static int[][] Sudoku_New=new int[9][9];
+    static int[][] SudokuNew=new int[9][9];
     static Scanner in = new Scanner(System.in);
     static int level;
-    static boolean ElementZero(int [][] Sudoku, int row,int col)
+    static boolean elementZero(int [][] Sudoku, int row,int col)
     {
         if(Sudoku[row][col]!=0)
         {
@@ -16,7 +16,7 @@ public class Sudoku_Methods
             return true;
         }
     }
-    static boolean IsRepeatingRow(int [][] Sudoku,int number,int row)
+    static boolean isRepeatingRow(int [][] Sudoku,int number,int row)
     {
         for(int i=0;i<9;i++)
         {
@@ -27,7 +27,7 @@ public class Sudoku_Methods
         }
         return false;
     }
-    static boolean IsRepeatingCol(int [][] Sudoku,int number,int col)
+    static boolean isRepeatingCol(int [][] Sudoku,int number,int col)
     {
         for(int i=0;i<9;i++)
         {
@@ -42,33 +42,33 @@ public class Sudoku_Methods
     {
         if(level==1)
         {
-            Sudoku=Sudoku_initialise.initialise_L1(Sudoku);
-            Sudoku_New=Sudoku_initialise.initialise_L1(Sudoku);
-            ElementAdd();
+            Sudoku=SudokuInitialise.initialiseL1(Sudoku);
+            SudokuNew=SudokuInitialise.initialiseL1(Sudoku);
+            elementAdd();
         }
         else if(level==2)
         {
-            Sudoku_initialise.initialise_L2(Sudoku);
-            Sudoku_New=Sudoku_initialise.initialise_L2(Sudoku);
-            ElementAdd();
+            SudokuInitialise.initialiseL2(Sudoku);
+            SudokuNew=SudokuInitialise.initialiseL2(Sudoku);
+            elementAdd();
         }
         else if(level==3)
         {
-            Sudoku_initialise.initialise_L3(Sudoku);
-            Sudoku_New=Sudoku_initialise.initialise_L3(Sudoku);
-            ElementAdd();
+            SudokuInitialise.initialiseL3(Sudoku);
+            SudokuNew=SudokuInitialise.initialiseL3(Sudoku);
+            elementAdd();
         }
         else if(level==4)
         {
-            Sudoku_initialise.initialise_L4(Sudoku);
-            Sudoku_New=Sudoku_initialise.initialise_L4(Sudoku);
-            ElementAdd();
+            SudokuInitialise.initialiseL4(Sudoku);
+            SudokuNew=SudokuInitialise.initialiseL4(Sudoku);
+            elementAdd();
         }
         else if(level==5)
         {
-            Sudoku_initialise.initialise_L5(Sudoku);
-            Sudoku_New=Sudoku_initialise.initialise_L5(Sudoku);
-            ElementAdd();
+            SudokuInitialise.initialiseL5(Sudoku);
+            SudokuNew=SudokuInitialise.initialiseL5(Sudoku);
+            elementAdd();
         }
         else
         {
@@ -76,14 +76,14 @@ public class Sudoku_Methods
             System.out.println("\n    YOU MAY RESTART THE GAME !!!");
         }
     }
-    static void ElementAdd()
+    static void elementAdd()
     {
         System.out.println("\n Here is your puzzle:  ");
-        Sudoku_initialise.Print(Sudoku);
+        SudokuInitialise.print(Sudoku);
         System.out.print("\n Enter the number: ");
         int num = in.nextInt();
         int row,col;
-        if(CorrectNum(num))
+        if(correctNum(num))
         {
             System.out.print("\n Enter the row: ");
             row = in.nextInt();
@@ -91,21 +91,21 @@ public class Sudoku_Methods
             col = in.nextInt();
             while(!ifSolved(Sudoku))
             {
-                if(!IsRepeatingCol(Sudoku, num, col) && !IsRepeatingRow(Sudoku, num, row) && ElementZero(Sudoku, row, col) && !CheckMainElem(row, col))
+                if(!isRepeatingCol(Sudoku, num, col) && !isRepeatingRow(Sudoku, num, row) && elementZero(Sudoku, row, col) && !checkMainElem(row, col))
                 {
                     Sudoku[row][col]=num;
-                    Sudoku_initialise.Print(Sudoku);
+                    SudokuInitialise.print(Sudoku);
                 }
                 if(ifSolved(Sudoku))
                 {
                     System.out.println("    YOU HAVE SUCCESSFULLY SOLVED THE PUZZLE !!!");
-                    Sudoku_initialise.Print(Sudoku);
+                    SudokuInitialise.print(Sudoku);
                 }
             }
 
         }
     }
-    static boolean CorrectNum(int num)
+    static boolean correctNum(int num)
     {
         if(num>0 && num<=9)
         {
@@ -116,9 +116,9 @@ public class Sudoku_Methods
             return false;
         }
     }
-    static boolean CheckMainElem(int row, int col)
+    static boolean checkMainElem(int row, int col)
     {
-        if(Sudoku_New[row][col]!=0)
+        if(SudokuNew[row][col]!=0)
         {
             return true;
         }
