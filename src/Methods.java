@@ -83,12 +83,11 @@ public class Methods
                 if(!isRepeatingCol(sudoku, num, col-1) && !isRepeatingRow(sudoku, num, row-1)  && !checkMainElem(row-1, col-1))
                 {
                     sudoku[row-1][col-1]=num;
-                    System.out.println("Sudoku: ");
                     SudokuInitialise.print(sudoku);
                 }
                 else
                 {
-                    System.out.print("\n Oops!!! There is some problem in the number or the place in which the number has to be added !!!");
+                    System.out.println("\n Oops!!! There is some problem in the number or the place in which the number has to be added !!!");
                 }
             }
         }

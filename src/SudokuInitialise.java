@@ -21,10 +21,10 @@ public class SudokuInitialise
         Sudoku[5][2]=6 ; Sudoku[5][5]=3 ; Sudoku[5][7]=2 ; Sudoku[5][8]=7 ;
 
         //row 7
-        Sudoku[6][0]=5 ;Sudoku[6][4]=7 ;Sudoku[6][6]=2 ;Sudoku[6][7]=4 ;
+        Sudoku[6][0]=5  ;Sudoku[6][6]=2 ;Sudoku[6][7]=4 ;
 
         //row 8
-        Sudoku[7][0]=1 ;Sudoku[7][2]=2 ;Sudoku[7][6]=9 ;Sudoku[7][7]=3 ;
+        Sudoku[7][0]=1 ;Sudoku[7][2]=2 ;Sudoku[7][6]=9 ;Sudoku[7][7]=3 ; Sudoku[7][4]=7;
         
         //row 9
         Sudoku[8][1]=3 ;Sudoku[8][2]=4 ;Sudoku[8][3]=8 ;Sudoku[8][5]=1 ;Sudoku[8][8]=6 ;
