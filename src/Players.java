@@ -56,7 +56,7 @@ public class Players
 
                 System.out.print("\n Enter the level: ");
                 int level=in.nextInt();
-                SudokuMethods.run(level);
+                Methods.run(level);
             }
         }
     }
