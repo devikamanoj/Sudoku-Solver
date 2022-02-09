@@ -5,17 +5,6 @@ public class Methods
     static int[][] sudokuNew=new int[9][9];
     static Scanner in = new Scanner(System.in);
     static int level;
-    static boolean elementZero(int [][] sudoku, int row,int col)
-    {
-        if(sudoku[row][col]!=0)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
     static boolean isRepeatingRow(int [][] sudoku,int number,int row)
     {
         for(int i=0;i<9;i++)
@@ -43,31 +32,31 @@ public class Methods
         if(level==1)
         {
             sudoku=SudokuInitialise.initialiseL1(sudoku);
-            sudokuNew=SudokuInitialise.initialiseL1(sudoku);
+            sudokuNew=SudokuInitialise.initialiseL1(sudokuNew);
             elementAdd();
         }
         else if(level==2)
         {
             sudoku=SudokuInitialise.initialiseL2(sudoku);
-            sudokuNew=SudokuInitialise.initialiseL2(sudoku);
+            sudokuNew=SudokuInitialise.initialiseL2(sudokuNew);
             elementAdd();
         }
         else if(level==3)
         {
             sudoku=SudokuInitialise.initialiseL3(sudoku);
-            sudokuNew=SudokuInitialise.initialiseL3(sudoku);
+            sudokuNew=SudokuInitialise.initialiseL3(sudokuNew);
             elementAdd();
         }
         else if(level==4)
         {
             sudoku=SudokuInitialise.initialiseL4(sudoku);
-            sudokuNew=SudokuInitialise.initialiseL4(sudoku);
+            sudokuNew=SudokuInitialise.initialiseL4(sudokuNew);
             elementAdd();
         }
         else if(level==5)
         {
             sudoku=SudokuInitialise.initialiseL5(sudoku);
-            sudokuNew=SudokuInitialise.initialiseL5(sudoku);
+            sudokuNew=SudokuInitialise.initialiseL5(sudokuNew);
             elementAdd();
         }
         else
@@ -91,9 +80,10 @@ public class Methods
                 row = in.nextInt();
                 System.out.print("\n Enter the column: ");
                 col = in.nextInt();
-                if(!isRepeatingCol(sudoku, num, col-1) && !isRepeatingRow(sudoku, num, row-1) && elementZero(sudoku, row-1, col-1) && !checkMainElem(row-1, col-1))
+                if(!isRepeatingCol(sudoku, num, col-1) && !isRepeatingRow(sudoku, num, row-1)  && !checkMainElem(row-1, col-1))
                 {
                     sudoku[row-1][col-1]=num;
+                    System.out.println("Sudoku: ");
                     SudokuInitialise.print(sudoku);
                 }
                 else
