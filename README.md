@@ -28,3 +28,13 @@ To fill the 9x9 grid with digits so that each column, each row, and each of the 
 
 ## OUTPUT
 
+<table>
+     <tr>
+          <td><img height="350" src="https://github.com/devikamanoj/Sudoku-Solver/blob/main/Output/Newplayer.png" /><br /><center><b>NEW PLAYER</b></center></td>
+          <td><img height="350" src="https://github.com/devikamanoj/Sudoku-Solver/blob/main/Output/OldPlayer.png" /><br /><center><b>OLD PLAYER</b></center></td>
+     </tr>
+     <tr>
+          <td><img height="325" src="https://github.com/devikamanoj/Sudoku-Solver/blob/main/Output/incompletePuzzle.png" /><br /><center><b>Sudoku To Solve</b></center></td>
+          <td><img height="325" src="https://github.com/devikamanoj/Sudoku-Solver/blob/main/Output/CompletedSudoku.png" /><br /><center><b>Solved Sudoku</b></center></td>
+     </tr>
+ </table>
