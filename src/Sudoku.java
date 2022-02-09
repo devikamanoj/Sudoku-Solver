@@ -34,6 +34,10 @@ public class Sudoku
             System.out.print("\n");
         }
         while(bool=='Y'||bool=='y');
+        if (bool =='N' || bool=='n')
+        {
+            System.out.println(" !!! THANKYOU !!!");
+        }
     }
     static void newPlayer()
     {

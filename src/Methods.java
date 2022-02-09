@@ -103,14 +103,6 @@ public class Methods
             {
                 Sudoku.oldPlayer();
             }
-            else if(choice.equals("N")||choice.equals("n"))
-            {
-                System.out.println(" !!! THANKYOU !!!");
-            }
-            else
-            {
-                System.out.println("    INVALID OPTION");
-            }
         }
     }
     static boolean correctNum(int num)
